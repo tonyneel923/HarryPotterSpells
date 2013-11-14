@@ -1,14 +1,4 @@
-    body{
-        background-color: black;
-    }
-    h2{
-        color:white;
-    }
-    h3{
-        color:white;
-    }
-    #accelerometer{
-
-        color:white;
-
+    #my_image{
+	height:45%;
+	width:45%;
     }

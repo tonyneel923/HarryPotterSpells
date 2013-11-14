@@ -1,37 +1,9 @@
 $(document).ready(function() {
     
-    var watchID = null;
     
-    function startWatch() {
-
-        // Update acceleration every 3 seconds
-        var options = { frequency: 3000 };
-
-        watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
-    }
-    
-    function stopWatch() {
-        if (watchID) {
-            navigator.accelerometer.clearWatch(watchID);
-            watchID = null;
-        }
-    }
-    
-    function onSuccess(acceleration) {
-        var element = document.getElementById('accelerometer');
-        element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
-                            'Acceleration Y: ' + acceleration.y + '<br />' +
-                            'Acceleration Z: ' + acceleration.z + '<br />' +
-                            'Timestamp: '      + acceleration.timestamp + '<br />';
-    }
-
-    // onError: Failed to get the acceleration
-    //
-    function onError() {
-        alert('onError!');
-    }
     
     $("h3").hide();
+    $("#my_image").hide();
     
     //What happens if certain spell is cast by clicking
     $("h2").click(function()
@@ -41,8 +13,8 @@ $(document).ready(function() {
 	    
 	    
 	    if (value=="Avada Kedavra" || value== "avada kedavra") {
-	   	    show_image("img/green_skull.gif","gif of green skull");
-	   	    
+	   	    $("img").show();
+        	$("#my_image").attr("src","img/green_skull.gif");
 	   	   
 	       // Create Media object from src
 	        //play_audio('android_asset/www/ghost.ogg');   
@@ -50,43 +22,20 @@ $(document).ready(function() {
 	    }
 	    
 	    else if (value=="Incendio" || value=="incendio") {
-	        show_image("img/fire.gif","gif of fire");
-	        
+	        $("img").show();
+	        $("#my_image").attr("src","img/fire.gif");
 	      
 	        // Create Media object from src
 	        //play_audio('android_asset/www/fire_sound.mp3');
 	
 	    }
-	    else if (value=="Silencio") {
-	        //code
-	    }
+	    
 	    else{
 	        $(this).next().slideToggle(300);
 	    }
     });
     
-    //loads image based on the string variable created by Speech to Text
-    var mynodes= new Array();
-    function show_image(src, alt) {
-        var img = document.createElement("img");
-        img.src = src;
-        img.width = 400;
-        img.height = 300;
-        img.alt = alt;
-        
-        
-        mynodes.push(img);
-        
-        
-        if(mynodes.length==1){
-            // This next line will just add it to the <body> tag
-            document.body.appendChild(mynodes[0]);
-        }
-        else
-        {
-            document.body.replaceChild(mynodes[mynodes.length-1],mynodes[mynodes.length-2]);
-        }
-	}
+    
 
 
 	
