@@ -106,5 +106,7 @@
     </feature>
     <!-- Deprecated plugins element. Remove in 3.0 -->
     <plugins>
+    	plugin name="org.apache.cordova.device"
+    	plugin name="org.apache.cordova.audiohandler"
     </plugins>
 </widget>
