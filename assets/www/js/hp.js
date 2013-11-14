@@ -36,43 +36,60 @@ $(document).ready(function() {
     //What happens if certain spell is cast by clicking
     $("h2").click(function()
     {
-    document.getElementById('input');
-    var value = document.getElementById('input').value;
-    
-    if (value=="Avada Kedavra" || value== "avada kedavra") {
-   	    show_image("img/green_skull.gif","gif of green skull");
-   	    
-       // Create Media object from src
-        play_audio('android_asset/ghost.ogg');   
-        
-    }
-    
-    else if (value=="Incendio" || value=="incendio") {
-        show_image("img/fire.gif","gif of fire");
-        
-        // Create Media object from src
-        play_audio('android_asset/fire_sound.mp3');
-
-    }
-    else if (value=="Silencio") {
-        //code
-    }
-    else{
-        $(this).next().slideToggle(300);
-    }
+	    document.getElementById('input');
+	    var value = document.getElementById('input').value;
+	    
+	    
+	    if (value=="Avada Kedavra" || value== "avada kedavra") {
+	   	    show_image("img/green_skull.gif","gif of green skull");
+	   	    
+	   	   
+	       // Create Media object from src
+	        //play_audio('android_asset/www/ghost.ogg');   
+	        
+	    }
+	    
+	    else if (value=="Incendio" || value=="incendio") {
+	        show_image("img/fire.gif","gif of fire");
+	        
+	      
+	        // Create Media object from src
+	        //play_audio('android_asset/www/fire_sound.mp3');
+	
+	    }
+	    else if (value=="Silencio") {
+	        //code
+	    }
+	    else{
+	        $(this).next().slideToggle(300);
+	    }
     });
     
     //loads image based on the string variable created by Speech to Text
+    var mynodes= new Array();
     function show_image(src, alt) {
         var img = document.createElement("img");
         img.src = src;
         img.width = 400;
         img.height = 300;
         img.alt = alt;
-      
-        // This next line will just add it to the <body> tag
-        document.body.appendChild(img);   
-}
+        
+        
+        mynodes.push(img);
+        
+        
+        if(mynodes.length==1){
+            // This next line will just add it to the <body> tag
+            document.body.appendChild(mynodes[0]);
+        }
+        else
+        {
+            document.body.replaceChild(mynodes[mynodes.length-1],mynodes[mynodes.length-2]);
+        }
+	}
+
+
+	
 
 
 	 function play_audio(src) {
