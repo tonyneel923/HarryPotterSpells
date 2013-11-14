@@ -20,7 +20,7 @@
           document.addEventListener("deviceready", onDeviceReady, false);
      }
      function onDeviceReady(){
-          navigator.notification.alert("PhoneGap is working!!");
+          navigator.notification.alert("Click Book of Spells to learn to be a wizard!!");
           //startWatch();
          
      }
@@ -29,14 +29,38 @@
   </head>
   
   <body onload="onLoad();">
-  	   <div data-role="page">	
+  	   <div data-role="page" id="one">	
 	       <div date-role="content">
 		  	   <input type="text" x-webkit-speech id="input"/>
 		       <h2>Cast Spell</h2>
 		       <h3>Sorry we don't have that spell! You are either a very good wizard or a very bad one.</h3>
 		       <img id="my_image" src="img/green_skull.gif" alt="gif of green skull"/>
 	       </div>
+	       <div data-role="footer" data-position="fixed">
+			   <p><a href="#two" data-role="button">Book of Spells</a></p>
+		   </div>
        </div>
+       
+      <!-- Start of second page: #two -->
+    <div data-role="page" id="two" data-theme="a">
+    
+	    <div data-role="header" data-theme="a">
+		    <h1>Book of Spells</h1>
+	    </div><!-- /header -->
+    
+	    <div data-role="content" data-theme="a">	
+		    <h2>Spells</h2>
+		    <p>Avada Kedavra</p>	
+		    <p>Incendio</p>
+		    <p>More to come Soon!</p>
+		    <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>	
+		    
+	    </div><!-- /content -->
+	    
+	    <div data-role="footer" data-position="fixed" data-theme="a">
+		    <h4>Book of Spells</h4>
+	    </div><!-- /footer -->
+    </div><!-- /page two --> 
        
   </body>
 </html>
